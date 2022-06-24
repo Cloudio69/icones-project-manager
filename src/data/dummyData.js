@@ -13,7 +13,7 @@ export const cardData = [
         Integer dignissim in eros faucibus porttitor. Ut eu lacinia lacus.
          Aliquam lectus lorem, fermentum nec nisi ut, auctor molestie ligula.`,
         taskCreation: new Date(),
-        taskEnding: "Not set",
+        taskEnding: false,
       },
     ],
   },
