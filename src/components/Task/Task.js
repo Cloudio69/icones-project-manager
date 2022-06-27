@@ -6,6 +6,7 @@ import DragHandleIcon from "@mui/icons-material/DragHandle";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 
 const Task = (props) => {
+  console.log(props);
   const timeCreated = new Date(props.creation);
 
   const dayCreated = timeCreated.toLocaleDateString("it-IT", {
@@ -15,11 +16,9 @@ const Task = (props) => {
   });
 
   const withPmAm = timeCreated.toLocaleTimeString("en-US", {
-    // en-US can be set to 'default' to use user's browser settings
     hour: "2-digit",
     minute: "2-digit",
   });
-
 
   return (
     <>
@@ -29,12 +28,28 @@ const Task = (props) => {
       <div className="ic-task p-2 shadow rounded-t-none rounded-b-md">
         <div className="ic-task__heading px-2 flex justify-between items-center">
           <div className="ic-task__title text-xl font-bold">{props.title}</div>
-          <div className="ic-task__category text-xs">{props.category}</div>
+          {props.priority === 3 ? (
+            <div className="ic-task__category text-[10px] font-bold bg-green-400 p-1 rounded-md">
+              No Priority
+            </div>
+          ) : props.priority === 2 ? (
+            <div className="ic-task__category text-[10px] font-bold bg-yellow-400 p-1 rounded-md">
+              Priorità Bassa
+            </div>
+          ) : props.priority === 1 ? (
+            <div className="ic-task__category text-[10px] font-bold bg-red-400 p-1 rounded-md">
+              Priorità Alta
+            </div>
+          ) : (
+            <div className="ic-task__category text-xs">{props.priority}</div>
+          )}
         </div>
         <div className="ic-task__body">
-          <div className="break-all overflow-hidden text-sm p-2 py-3">
-            {props.description}
-          </div>
+          {props.description ? (
+            <div className="break-all overflow-hidden text-sm p-2 py-3">
+              {props.description}
+            </div>
+          ) : null}
         </div>
         <div className="ic-task__footer py-2">
           <div className="ic-task__start px-2 flex items-center gap-1 text-slate-400">
