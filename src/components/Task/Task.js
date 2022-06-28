@@ -6,7 +6,6 @@ import DragHandleIcon from "@mui/icons-material/DragHandle";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 
 const Task = (props) => {
-  console.log(props);
   const timeCreated = new Date(props.creation);
 
   const dayCreated = timeCreated.toLocaleDateString("it-IT", {
@@ -21,7 +20,7 @@ const Task = (props) => {
   });
 
   return (
-    <>
+    <div className="ic-task__wrapper">
       <div className="ic-task__drag w-full text-slate-400 text-center px-2 bg-slate-200 rounded-b-none rounded-t-md">
         <DragHandleIcon />
       </div>
@@ -64,7 +63,7 @@ const Task = (props) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

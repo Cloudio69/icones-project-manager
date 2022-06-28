@@ -20,9 +20,8 @@ const Card = () => {
     <div className="ic-card shadow-md rounded-xl bg-slate-50">
       <div className="flex p-2 h-full flex-col">
         {cardData.map((items, index) => (
-          <>
+          <React.Fragment key={index}>
             <div
-              key={index}
               className="ic-card__title flex flex-grow items-center justify-between py-2"
             >
               <div className="text-lg font-bold px-2">{items.title}</div>
@@ -50,7 +49,7 @@ const Card = () => {
                 )) : <p className="text-xl font-bold text-center"> Nessuna task </p>}
               </div>
             </div>
-          </>
+          </React.Fragment>
         ))}
       </div>
     </div>

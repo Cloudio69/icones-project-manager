@@ -12,7 +12,6 @@ const NewTask = (props) => {
       ...newTaskData,
       id: small_id,
     };
-    console.log(taskData)
     props.onAddTask(taskData)
   };
 

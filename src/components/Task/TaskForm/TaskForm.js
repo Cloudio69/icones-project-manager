@@ -29,17 +29,17 @@ const TaskForm = (props) => {
 
   const formHandler = (event) => {
     event.preventDefault();
-    
+
     const taskData = {
       title: formInputs.title,
       priority: formInputs.priority,
       description: formInputs.description,
-      dateCreation: new Date()
+      dateCreation: new Date(),
     };
 
     props.onSaveTaskData(taskData);
 
-    modalHandler()
+    modalHandler();
 
     setFormInputs({
       title: "",
@@ -64,11 +64,16 @@ const TaskForm = (props) => {
 
   return (
     <>
-      <Button className="w-full" startIcon={<AddIcon />} onClick={modalHandler}>
+      <Button
+        className="w-full"
+        startIcon={<AddIcon />}
+        onClick={modalHandler}
+        variant="contained"
+      >
         AGGIUNGI TASK
       </Button>
 
-      <Modal open={activeModal} onClose={modalHandler}>
+      <Modal open={activeModal} onClose={modalHandler} closeAfterTransition>
         <div className="ic-task__form bg-slate-100 p-2 rounded-lg">
           <div className="ic-task__form-head flex justify-between items-center px-2">
             <span className="ic-task__form-title text-2xl font-bold">
@@ -131,7 +136,7 @@ const TaskForm = (props) => {
               />
               <div className="ic-task__form-footer absolute bottom-0 left-0 py-4 w-full flex justify-between">
                 <div className="ic-task__start px-4 flex items-center gap-1 text-slate-400">
-                <span className="text-xs">Data creazione: </span>
+                  <span className="text-xs">Data creazione: </span>
                   <span className="ic-task__start-icon text-xs">
                     <AccessTimeIcon />
                   </span>
@@ -147,7 +152,6 @@ const TaskForm = (props) => {
                     startIcon={<AddIcon />}
                     variant="contained"
                   >
-                    {" "}
                     Aggiungi
                   </Button>
                 </div>
